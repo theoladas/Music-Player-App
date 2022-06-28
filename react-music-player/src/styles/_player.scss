@@ -1,0 +1,34 @@
+// Add styles to the main container
+.player-container {
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Add styles to the time-control container
+.time-control {
+  width: 50%;
+  display: flex;
+  //   Add styles to the input
+  input {
+    width: 100%;
+    padding: 1rem 2rem;
+  }
+  //   Add styles to the paragraph
+  p {
+    padding: 1rem;
+  }
+}
+// Add styles to the play-control container
+.play-control {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  svg {
+    cursor: pointer;
+  }
+}
