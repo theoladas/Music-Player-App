@@ -5,4 +5,26 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  // add styles for song cover
+  img {
+    width: 30%;
+    border-radius: 50%;
+    animation: spinCover 7s infinite linear;
+  }
+  // add styles for title and artist
+  h2 {
+    padding: 3rem 1rem 1rem 1rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+}
+// create animation for the cover image
+@keyframes spinCover {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

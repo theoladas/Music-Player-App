@@ -1,10 +1,19 @@
+// import Google fonts
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
+
+// import CSS
+@import "./song";
+@import "./player";
+
+// base styles
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
-
-@import "./song";
-@import "./player";
+h1,
+h2,
+h3 {
+  color: rgb(54, 54, 54);
+}
