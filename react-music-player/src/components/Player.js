@@ -6,8 +6,12 @@ import {
   faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 const Player = ({ currentSong }) => {
+  // Create Ref
+  const audioRef = useRef(null);
   // Event Handlers
-
+  const playSongHandler = () => {
+    console.log(audioRef.current); // we get the song's mp3 link
+  };
   return (
     <div className="player-container">
       <div className="time-control">
@@ -29,7 +33,7 @@ const Player = ({ currentSong }) => {
           className="skip-forward"
         />
       </div>
-      <audio src={currentSong.audio}></audio>
+      <audio ref={audioRef} src={currentSong.audio}></audio>
     </div>
   );
 };
