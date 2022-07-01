@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -6,6 +6,8 @@ import {
   faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 const Player = ({ currentSong }) => {
+  // Event Handlers
+
   return (
     <div className="player-container">
       <div className="time-control">
@@ -15,7 +17,12 @@ const Player = ({ currentSong }) => {
       </div>
       <div className="play-control">
         <FontAwesomeIcon icon={faAngleLeft} size="2x" className="skip-back" />
-        <FontAwesomeIcon icon={faPlay} size="2x" className="play-icon" />
+        <FontAwesomeIcon
+          icon={faPlay}
+          size="2x"
+          className="play-icon"
+          onClick={playSongHandler}
+        />
         <FontAwesomeIcon
           icon={faAngleRight}
           size="2x"
