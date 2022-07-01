@@ -5,7 +5,7 @@ import {
   faAngleLeft,
   faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
-const Player = () => {
+const Player = ({ currentSong }) => {
   return (
     <div className="player-container">
       <div className="time-control">
@@ -22,6 +22,7 @@ const Player = () => {
           className="skip-forward"
         />
       </div>
+      <audio src={currentSong.audio}></audio>
     </div>
   );
 };

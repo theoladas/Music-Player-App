@@ -10,13 +10,13 @@ import data from "./data";
 function App() {
   // create state
   const [songs, setSongs] = useState(data());
-  // we need to grab the 1st song of the songs array, as the current song
+  // we want to grab a song of the songs array, as the current song
   const [currentSong, setCurrentSong] = useState(songs[2]);
   return (
     <div className="App">
       {/* pass the currentSong to the Song component */}
       <Song currentSong={currentSong} />
-      <Player />
+      <Player currentSong={currentSong} />
     </div>
   );
 }
