@@ -10,7 +10,9 @@ const Player = ({ currentSong }) => {
   const audioRef = useRef(null);
   // Event Handlers
   const playSongHandler = () => {
-    console.log(audioRef.current); // we get the song's mp3 link
+    // play audio
+    audioRef.current.play();
+    // console.log(audioRef.current); // we get the song's mp3 link
   };
   return (
     <div className="player-container">
