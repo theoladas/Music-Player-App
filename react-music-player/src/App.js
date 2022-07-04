@@ -12,6 +12,8 @@ function App() {
   const [songs, setSongs] = useState(data());
   // we want to grab a song of the songs array, as the current song
   const [currentSong, setCurrentSong] = useState(songs[2]);
+  // check if the current song is playing. We set the state to false because the current song will not be playing by default.
+  const [isPlaying, setIsPlaying] = useState(false);
   return (
     <div className="App">
       {/* pass the currentSong to the Song component */}
