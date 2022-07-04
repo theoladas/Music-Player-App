@@ -26,6 +26,7 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
     // audioRef.current.play();
     // console.log(audioRef.current); // we get the song's mp3 link
   };
+  // create state for current song time
   return (
     <div className="player-container">
       <div className="time-control">
