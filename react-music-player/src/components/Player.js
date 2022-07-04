@@ -4,14 +4,26 @@ import {
   faPlay,
   faAngleLeft,
   faAngleRight,
+  faItalic,
 } from "@fortawesome/free-solid-svg-icons";
-const Player = ({ currentSong }) => {
+const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
   // Create Ref
   const audioRef = useRef(null);
   // Event Handlers
   const playSongHandler = () => {
+    // if the current song is playing
+    if (isPlaying) {
+      // then pause it
+      audioRef.current.pause();
+      // switch the state to the opposite of what it was
+      setIsPlaying(!isPlaying);
+    } else {
+      audioRef.current.play();
+      // switch the state to the opposite of what it was
+      setIsPlaying(!isPlaying);
+    }
     // play audio
-    audioRef.current.play();
+    // audioRef.current.play();
     // console.log(audioRef.current); // we get the song's mp3 link
   };
   return (

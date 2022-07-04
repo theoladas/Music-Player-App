@@ -6,6 +6,7 @@ import Song from "./components/Song";
 import Player from "./components/Player";
 // import data songs
 import data from "./data";
+import { faCartFlatbedSuitcase } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   // create state
@@ -18,7 +19,11 @@ function App() {
     <div className="App">
       {/* pass the currentSong to the Song component */}
       <Song currentSong={currentSong} />
-      <Player currentSong={currentSong} />
+      <Player
+        isPlaying={isPlaying}
+        setIsPlaying={setIsPlaying}
+        currentSong={currentSong}
+      />
     </div>
   );
 }
