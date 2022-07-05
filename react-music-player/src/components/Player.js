@@ -9,6 +9,7 @@ import {
 const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
   // Create Ref
   const audioRef = useRef(null);
+
   // Event Handlers
   const playSongHandler = () => {
     // if the current song is playing
@@ -27,6 +28,13 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
     // console.log(audioRef.current); // we get the song's mp3 link
   };
 
+  //create function to format the time's song to minutes and seconds eg: 00:00
+  const getTime = (time) => {
+    // taken from stack overflow: 'How to format time'
+    return (
+      Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
+    );
+  };
   //create song time handler function
   const timeUpdateHandler = (e) => {
     // get current time of the song
@@ -38,6 +46,7 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
     // update state setSongInfo with the time
     setSongInfo({ ...songInfo, currentTime: current, duration: duration });
   };
+
   // create state for current song time
   const [songInfo, setSongInfo] = useState({
     currentTime: null,
@@ -46,9 +55,11 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
   return (
     <div className="player-container">
       <div className="time-control">
-        <p>Start time</p>
+        {/* update current song's time */}
+        <p>{getTime(songInfo.currentTime)}</p>
         <input type="range" />
-        <p>End time</p>
+        {/* update current's song end time (duration) */}
+        <p>{getTime(songInfo.duration)}</p>
       </div>
       <div className="play-control">
         <FontAwesomeIcon icon={faAngleLeft} size="2x" className="skip-back" />
@@ -65,10 +76,12 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
         />
       </div>
       <audio
-        // it runs every second the song time changes
-        onTimeUpdate={timeUpdateHandler}
         // we useRef to grab audio html element
         ref={audioRef}
+        // it runs every second the song time changes
+        onTimeUpdate={timeUpdateHandler}
+        // when the file audio loads up, we got the time on the screen
+        onLoadedMetadata={timeUpdateHandler}
         src={currentSong.audio}
       ></audio>
     </div>
