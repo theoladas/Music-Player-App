@@ -7,7 +7,14 @@ import {
   faPause,
   faItalic,
 } from "@fortawesome/free-solid-svg-icons";
-const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
+const Player = ({
+  currentSong,
+  isPlaying,
+  setIsPlaying,
+  audioRef,
+  songInfo,
+  setSongInfo,
+}) => {
   // Event Handlers
   const playSongHandler = () => {
     // if the current song is playing
@@ -33,16 +40,7 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
       Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
     );
   };
-  //create song time handler function
-  const timeUpdateHandler = (e) => {
-    // get current time of the song
-    const current = e.target.currentTime;
-    // get the duration of the song
-    const duration = e.target.duration;
-    // console.log(duration)
-    // update state setSongInfo with the time
-    setSongInfo({ ...songInfo, currentTime: current, duration: duration });
-  };
+
   // create a handler so we can navigate through the time of the song
   const dragHandler = (e) => {
     //update the audio current time to be equal with e.target.value
@@ -51,11 +49,7 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
     setSongInfo({ ...songInfo, currentTime: e.target.value });
     // console.log(e.target.value);
   };
-  // create state for current song time
-  const [songInfo, setSongInfo] = useState({
-    currentTime: 0,
-    duration: 0,
-  });
+
   return (
     <div className="player-container">
       <div className="time-control">

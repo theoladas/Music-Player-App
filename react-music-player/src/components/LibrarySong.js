@@ -1,6 +1,6 @@
 import React from "react";
 
-const LibrarySong = ({ song, songs, setCurrentSong, id }) => {
+const LibrarySong = ({ song, songs, setCurrentSong, id, audioRef }) => {
   // create select song handler function
   const songSelectHandler = () => {
     const selectedSong = song;

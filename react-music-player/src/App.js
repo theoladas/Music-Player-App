@@ -18,16 +18,38 @@ function App() {
   const [currentSong, setCurrentSong] = useState(songs[2]);
   // check if the current song is playing. We set the state to false because the current song will not be playing by default.
   const [isPlaying, setIsPlaying] = useState(false);
+  // create state for current song time
+  const [songInfo, setSongInfo] = useState({
+    currentTime: 0,
+    duration: 0,
+  });
+  //create song time handler function
+  const timeUpdateHandler = (e) => {
+    // get current time of the song
+    const current = e.target.currentTime;
+    // get the duration of the song
+    const duration = e.target.duration;
+    // console.log(duration)
+    // update state setSongInfo with the time
+    setSongInfo({ ...songInfo, currentTime: current, duration: duration });
+  };
   return (
     <div className="App">
       {/* pass the currentSong to the Song component */}
       <Song currentSong={currentSong} />
       <Player
+        audioRef={audioRef}
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
         currentSong={currentSong}
+        songInfo={songInfo}
+        setSongInfo={setSongInfo}
       />
-      <Library songs={songs} setCurrentSong={setCurrentSong} />
+      <Library
+        audioRef={audioRef}
+        songs={songs}
+        setCurrentSong={setCurrentSong}
+      />
       <audio
         // we useRef to grab audio html element
         ref={audioRef}
