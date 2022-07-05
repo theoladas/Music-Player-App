@@ -29,7 +29,10 @@ const LibrarySong = ({
   };
 
   return (
-    <div onClick={songSelectHandler} className="library-song">
+    <div
+      onClick={songSelectHandler}
+      className={`library-song ${song.active ? "selected" : ""}`}
+    >
       {/* display all song information */}
       <img src={song.cover} alt={song.name}></img>
       <div className="song-description">
