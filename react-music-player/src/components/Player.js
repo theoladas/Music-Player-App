@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -8,9 +8,6 @@ import {
   faItalic,
 } from "@fortawesome/free-solid-svg-icons";
 const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
-  // Create Ref
-  const audioRef = useRef(null);
-
   // Event Handlers
   const playSongHandler = () => {
     // if the current song is playing
@@ -94,15 +91,6 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
           className="skip-forward"
         />
       </div>
-      <audio
-        // we useRef to grab audio html element
-        ref={audioRef}
-        // it runs every second the song time changes
-        onTimeUpdate={timeUpdateHandler}
-        // when the file audio loads up, we got the time on the screen
-        onLoadedMetadata={timeUpdateHandler}
-        src={currentSong.audio}
-      ></audio>
     </div>
   );
 };

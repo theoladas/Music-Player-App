@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 // import styles
 import "./styles/app.scss";
 // import components
@@ -10,6 +10,8 @@ import data from "./data";
 import { faCartFlatbedSuitcase } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
+  // Create Ref
+  const audioRef = useRef(null);
   // create state
   const [songs, setSongs] = useState(data());
   // we want to grab a song of the songs array, as the current song
@@ -26,6 +28,15 @@ function App() {
         currentSong={currentSong}
       />
       <Library songs={songs} setCurrentSong={setCurrentSong} />
+      <audio
+        // we useRef to grab audio html element
+        ref={audioRef}
+        // it runs every second the song time changes
+        onTimeUpdate={timeUpdateHandler}
+        // when the file audio loads up, we got the time on the screen
+        onLoadedMetadata={timeUpdateHandler}
+        src={currentSong.audio}
+      ></audio>
     </div>
   );
 }
