@@ -1,7 +1,7 @@
 import React from "react";
 import LibrarySong from "./LibrarySong";
 
-const Library = ({ songs }) => {
+const Library = ({ songs, setCurrentSong }) => {
   return (
     <div className="library">
       <h2>Library</h2>
@@ -9,7 +9,7 @@ const Library = ({ songs }) => {
         {/* From all songs (from data.js) we grab each song, we map over them and create a component for each one. */}
         {songs.map((song) => (
           // pass all the information for the song to the component
-          <LibrarySong song={song} />
+          <LibrarySong song={song} setCurrentSong={setCurrentSong} />
         ))}
       </div>
     </div>
