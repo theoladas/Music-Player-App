@@ -49,6 +49,7 @@ function App() {
         audioRef={audioRef}
         songs={songs}
         setCurrentSong={setCurrentSong}
+        isPlaying={isPlaying}
       />
       <audio
         // we useRef to grab audio html element
