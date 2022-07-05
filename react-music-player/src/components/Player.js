@@ -4,6 +4,7 @@ import {
   faPlay,
   faAngleLeft,
   faAngleRight,
+  faPause,
   faItalic,
 } from "@fortawesome/free-solid-svg-icons";
 const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
@@ -81,7 +82,8 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
       <div className="play-control">
         <FontAwesomeIcon icon={faAngleLeft} size="2x" className="skip-back" />
         <FontAwesomeIcon
-          icon={faPlay}
+          // if statement to toggle between play / pause icons based by if the song is playing or not. If my song is playing show the Pause icon , else show the Play icon.
+          icon={isPlaying ? faPause : faPlay}
           size="2x"
           className="play-icon"
           onClick={playSongHandler}
