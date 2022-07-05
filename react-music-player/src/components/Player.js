@@ -57,7 +57,16 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
       <div className="time-control">
         {/* update current song's time */}
         <p>{getTime(songInfo.currentTime)}</p>
-        <input type="range" />
+        {/* add functionality to move on time's song */}
+        <input
+          // we always start form 0
+          min={0}
+          // the song total time duration will be max
+          max={songInfo.duration}
+          // the position of the slide will be the currentTime
+          value={songInfo.currentTime}
+          type="range"
+        />
         {/* update current's song end time (duration) */}
         <p>{getTime(songInfo.duration)}</p>
       </div>
