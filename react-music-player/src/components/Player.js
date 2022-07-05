@@ -26,7 +26,16 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
     // audioRef.current.play();
     // console.log(audioRef.current); // we get the song's mp3 link
   };
+  //create song time handler function
+  const timeUpdateHandler = (e) => {
+    // get current time of the song
+    const current = e.target.currentTime;
+    // console.log(current);
 
+    // get the duration of the song
+    const duration = e.target.duration;
+    // console.log(duration);
+  };
   // create state for current song time
   const [songInfo, setSongInfo] = useState({
     currentTime: null,
@@ -53,7 +62,13 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
           className="skip-forward"
         />
       </div>
-      <audio ref={audioRef} src={currentSong.audio}></audio>
+      <audio
+        // it runs every second the song time changes
+        onTimeUpdate={timeUpdateHandler}
+        // we useRef to grab audio html element
+        ref={audioRef}
+        src={currentSong.audio}
+      ></audio>
     </div>
   );
 };
