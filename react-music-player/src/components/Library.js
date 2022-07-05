@@ -9,7 +9,17 @@ const Library = ({ songs, setCurrentSong }) => {
         {/* From all songs (from data.js) we grab each song, we map over them and create a component for each one. */}
         {songs.map((song) => (
           // pass all the information for the song to the component
-          <LibrarySong song={song} setCurrentSong={setCurrentSong} />
+          <LibrarySong
+            // pass each individual song and their information
+            song={song}
+            // pass the function to change the current song to something else
+            setCurrentSong={setCurrentSong}
+            // pass all the songs from our state
+            songs={songs}
+            // pass the id of the song
+            id={song.id}
+            key={song.id}
+          />
         ))}
       </div>
     </div>
