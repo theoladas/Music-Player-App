@@ -26,15 +26,17 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
     // audioRef.current.play();
     // console.log(audioRef.current); // we get the song's mp3 link
   };
+
   //create song time handler function
   const timeUpdateHandler = (e) => {
     // get current time of the song
     const current = e.target.currentTime;
-    // console.log(current);
-
     // get the duration of the song
     const duration = e.target.duration;
-    // console.log(duration);
+    // console.log(duration)
+
+    // update state setSongInfo with the time
+    setSongInfo({ ...songInfo, currentTime: current, duration: duration });
   };
   // create state for current song time
   const [songInfo, setSongInfo] = useState({
