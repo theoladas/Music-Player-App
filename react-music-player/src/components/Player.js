@@ -55,8 +55,8 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
   };
   // create state for current song time
   const [songInfo, setSongInfo] = useState({
-    currentTime: null,
-    duration: null,
+    currentTime: 0,
+    duration: 0,
   });
   return (
     <div className="player-container">
