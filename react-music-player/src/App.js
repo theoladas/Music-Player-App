@@ -4,6 +4,7 @@ import "./styles/app.scss";
 // import components
 import Song from "./components/Song";
 import Player from "./components/Player";
+import Library from "./components/Library";
 // import data songs
 import data from "./data";
 import { faCartFlatbedSuitcase } from "@fortawesome/free-solid-svg-icons";
@@ -24,6 +25,7 @@ function App() {
         setIsPlaying={setIsPlaying}
         currentSong={currentSong}
       />
+      <Library />
     </div>
   );
 }
