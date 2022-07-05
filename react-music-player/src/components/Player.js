@@ -42,11 +42,17 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
     // get the duration of the song
     const duration = e.target.duration;
     // console.log(duration)
-
     // update state setSongInfo with the time
     setSongInfo({ ...songInfo, currentTime: current, duration: duration });
   };
-
+  // create a handler so we can navigate through the time of the song
+  const dragHandler = (e) => {
+    //update the audio current time to be equal with e.target.value
+    audioRef.current.currentTime = e.target.value;
+    // update the state with event's value
+    setSongInfo({ ...songInfo, currentTime: e.target.value });
+    // console.log(e.target.value);
+  };
   // create state for current song time
   const [songInfo, setSongInfo] = useState({
     currentTime: null,
@@ -59,13 +65,15 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
         <p>{getTime(songInfo.currentTime)}</p>
         {/* add functionality to move on time's song */}
         <input
+          type="range"
           // we always start form 0
           min={0}
           // the song total time duration will be max
           max={songInfo.duration}
           // the position of the slide will be the currentTime
           value={songInfo.currentTime}
-          type="range"
+          // to be able to position song's time
+          onChange={dragHandler}
         />
         {/* update current's song end time (duration) */}
         <p>{getTime(songInfo.duration)}</p>
