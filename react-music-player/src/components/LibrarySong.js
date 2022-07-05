@@ -7,12 +7,31 @@ const LibrarySong = ({
   id,
   audioRef,
   isPlaying,
+  setSongs,
 }) => {
   // create select song handler function
   const songSelectHandler = () => {
-    const selectedSong = song;
+    // I want to grab all the Library songs from the state and filter them out.
+    const selectedSong = songs.filter((state) => state.id === id);
     // we set the setCurrentSong to the song we clicked:
-    setCurrentSong(selectedSong);
+    setCurrentSong(selectedSong[0]);
+    // Add active state:
+    const newSongs = songs.map((song) => {
+      if (song.id === id) {
+        return {
+          // if it match, return the whole song and set active to true
+          ...song,
+          active: true,
+        };
+      } else {
+        return {
+          ...song,
+          active: false,
+        };
+      }
+    });
+    // update the state:
+    setSongs(newSongs);
     // check if the song is playing:
     if (isPlaying) {
       // create a play promise:

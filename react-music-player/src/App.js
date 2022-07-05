@@ -10,9 +10,10 @@ import data from "./data";
 import { faCartFlatbedSuitcase } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
-  // Create Ref
+  // Ref
   const audioRef = useRef(null);
-  // create state
+
+  // State
   const [songs, setSongs] = useState(data());
   // we want to grab a song of the songs array, as the current song
   const [currentSong, setCurrentSong] = useState(songs[0]);
@@ -23,6 +24,8 @@ function App() {
     currentTime: 0,
     duration: 0,
   });
+
+  // Handlers
   //create song time handler function
   const timeUpdateHandler = (e) => {
     // get current time of the song
@@ -50,6 +53,7 @@ function App() {
         songs={songs}
         setCurrentSong={setCurrentSong}
         isPlaying={isPlaying}
+        setSongs={setSongs}
       />
       <audio
         // we useRef to grab audio html element
