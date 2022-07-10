@@ -1,4 +1,18 @@
 nav {
   min-height: 10vh;
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+  button {
+    background: transparent;
+    border: none;
+    border: 2px solid rgb(65, 65, 65);
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    &:hover {
+      background: rgb(65, 65, 65);
+      color: white;
+    }
+  }
 }
