@@ -14,7 +14,7 @@ function App() {
   // Ref
   const audioRef = useRef(null);
 
-  // State
+  // States
   const [songs, setSongs] = useState(data());
   // we want to grab a song of the songs array, as the current song
   const [currentSong, setCurrentSong] = useState(songs[0]);
@@ -25,6 +25,8 @@ function App() {
     currentTime: 0,
     duration: 0,
   });
+  // create state for library (when it's open or not)(we dont want it open we set it to false by default)
+  const [libraryStatus, setLibraryStatus] = useState(false);
 
   // Handlers
   //create song time handler function
@@ -39,7 +41,7 @@ function App() {
   };
   return (
     <div className="App">
-      <Nav />
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       {/* pass the currentSong to the Song component */}
       <Song currentSong={currentSong} />
       <Player
