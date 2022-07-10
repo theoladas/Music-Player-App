@@ -60,8 +60,8 @@ const Player = ({
           type="range"
           // we always start form 0
           min={0}
-          // the song total time duration will be max
-          max={songInfo.duration}
+          // the song total time duration will be max or 0
+          max={songInfo.duration || 0}
           // the position of the slide will be the currentTime
           value={songInfo.currentTime}
           // to be able to position song's time
