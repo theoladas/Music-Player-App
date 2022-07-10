@@ -5,6 +5,7 @@ import "./styles/app.scss";
 import Song from "./components/Song";
 import Player from "./components/Player";
 import Library from "./components/Library";
+import Nav from "./components/Nav";
 // import data songs
 import data from "./data";
 import { faCartFlatbedSuitcase } from "@fortawesome/free-solid-svg-icons";
@@ -38,6 +39,7 @@ function App() {
   };
   return (
     <div className="App">
+      <Nav />
       {/* pass the currentSong to the Song component */}
       <Song currentSong={currentSong} />
       <Player
