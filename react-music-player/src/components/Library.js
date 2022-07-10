@@ -1,9 +1,17 @@
 import React from "react";
 import LibrarySong from "./LibrarySong";
 
-const Library = ({ songs, setCurrentSong, audioRef, isPlaying, setSongs }) => {
+const Library = ({
+  songs,
+  setCurrentSong,
+  audioRef,
+  isPlaying,
+  setSongs,
+  libraryStatus,
+}) => {
   return (
-    <div className="library">
+    // check if libraryStatus is true (if yes, add the active-library class)
+    <div className={`library ${libraryStatus ? "active-library" : ""}`}>
       <h2>Library</h2>
       <div className="library-songs">
         {/* From all songs (from data.js) we grab each song, we map over them and create a component for each one. */}
