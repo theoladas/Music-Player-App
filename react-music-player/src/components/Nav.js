@@ -5,7 +5,8 @@ const Nav = ({ libraryStatus, setLibraryStatus }) => {
   return (
     <nav>
       <h1>Chill VIbes</h1>
-      <button>
+      {/* set th elibraryStatus to the opposite of what is right now.*/}
+      <button onClick={() => setLibraryStatus(!libraryStatus)}>
         Library
         <FontAwesomeIcon icon={faMusic} />
       </button>
