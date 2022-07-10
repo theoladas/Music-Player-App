@@ -49,7 +49,8 @@ const Player = ({
     setSongInfo({ ...songInfo, currentTime: e.target.value });
     // console.log(e.target.value);
   };
-
+  // create function to skip the song back and forward:
+  const skipTrackHandler = () => {};
   return (
     <div className="player-container">
       <div className="time-control">
@@ -71,7 +72,13 @@ const Player = ({
         <p>{getTime(songInfo.duration)}</p>
       </div>
       <div className="play-control">
-        <FontAwesomeIcon icon={faAngleLeft} size="2x" className="skip-back" />
+        <FontAwesomeIcon
+          // Add event with the skipTrackHandler , parameter (skip-back)
+          onClick={() => skipTrackHandler("skip-back")}
+          icon={faAngleLeft}
+          size="2x"
+          className="skip-back"
+        />
         <FontAwesomeIcon
           // if statement to toggle between play / pause icons based by if the song is playing or not. If my song is playing show the Pause icon , else show the Play icon.
           icon={isPlaying ? faPause : faPlay}
@@ -80,6 +87,8 @@ const Player = ({
           onClick={playSongHandler}
         />
         <FontAwesomeIcon
+          // Add event with the skipTrackHandler
+          onClick={() => skipTrackHandler("skip-forward")}
           icon={faAngleRight}
           size="2x"
           className="skip-forward"
