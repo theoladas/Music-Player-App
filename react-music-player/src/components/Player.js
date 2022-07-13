@@ -14,6 +14,7 @@ const Player = ({
   audioRef,
   songInfo,
   setSongInfo,
+  songs,
 }) => {
   // Event Handlers
   const playSongHandler = () => {
@@ -50,7 +51,9 @@ const Player = ({
     // console.log(e.target.value);
   };
   // create function to skip the song back and forward:
-  const skipTrackHandler = () => {};
+  const skipTrackHandler = (direction) => {
+    let currentIndex = songs;
+  };
   return (
     <div className="player-container">
       <div className="time-control">
