@@ -15,6 +15,7 @@ const Player = ({
   songInfo,
   setSongInfo,
   songs,
+  setCurrentSong,
 }) => {
   // Event Handlers
   const playSongHandler = () => {
@@ -52,7 +53,13 @@ const Player = ({
   };
   // create function to skip the song back and forward:
   const skipTrackHandler = (direction) => {
-    let currentIndex = songs;
+    // check if the currentSong's id matches the song's id of the state. If it matches, give me the index of that.
+    let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+    // then we need to check the direction, if we skip forward :
+    if (direction === "skip-forward") {
+      // we will go to the song array (state) and we will dynamically get the current index and we add +1 (to move forward). We set all of this to the setCurrentSong. eg. If I am in the song with index 1 , we grab this index(1) and we +1 on it to move into the index 2.
+      setCurrentSong(songs[currentIndex + 1]);
+    }
   };
   return (
     <div className="player-container">
