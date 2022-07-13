@@ -57,8 +57,10 @@ const Player = ({
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     // then we need to check the direction, if we skip forward :
     if (direction === "skip-forward") {
-      // we will go to the song array (state) and we will dynamically get the current index and we add +1 (to move forward). We set all of this to the setCurrentSong. eg. If I am in the song with index 1 , we grab this index(1) and we +1 on it to move into the index 2.
-      setCurrentSong(songs[currentIndex + 1]);
+      setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+      console.log(`next index ${currentIndex + 1}`);
+      console.log(`songs length ${songs.length}`);
+      console.log(`songs length ${songs.length}`);
     }
   };
   return (
