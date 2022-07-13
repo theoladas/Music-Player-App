@@ -6,6 +6,7 @@ import {
   faAngleRight,
   faPause,
   faItalic,
+  faSignsPost,
 } from "@fortawesome/free-solid-svg-icons";
 const Player = ({
   currentSong,
@@ -55,12 +56,24 @@ const Player = ({
   const skipTrackHandler = (direction) => {
     // check if the currentSong's id matches the song's id of the state. If it matches, give me the index of that.
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
-    // then we need to check the direction, if we skip forward :
+    // check the direction, if we skip forward :
     if (direction === "skip-forward") {
+      // index by +1 to move to the next song. the modulus allows to check if we get to the same number as the songs.length, then to go back to 0.
       setCurrentSong(songs[(currentIndex + 1) % songs.length]);
-      console.log(`next index ${currentIndex + 1}`);
-      console.log(`songs length ${songs.length}`);
-      console.log(`songs length ${songs.length}`);
+      // console.log(`next index ${currentIndex + 1}`);
+      // console.log(`songs length ${songs.length}`);
+      // console.log(`songs length ${songs.length}`);
+    }
+    // check if we skip backward:
+    if (direction === "skip-backward") {
+      // check if the currentIndex -1 and then song.length === -1
+      if ((currentIndex - 1) % songs.length === -1) {
+        // setCurrentSong to the last song
+        setCurrentSong(songs[songs.length - 1]);
+        // add return so when the above code runs, the below code doesnt run.
+        return;
+      }
+      setCurrentSong(songs[(currentIndex - 1) % songs.length]);
     }
   };
   return (
