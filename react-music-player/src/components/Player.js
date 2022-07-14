@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -9,6 +8,7 @@ import {
   faItalic,
   faSignsPost,
 } from "@fortawesome/free-solid-svg-icons";
+import { playAudio } from "../Util";
 
 const Player = ({
   currentSong,
@@ -58,8 +58,7 @@ const Player = ({
       // switch the state to the opposite of what it was
       setIsPlaying(!isPlaying);
     }
-    // play audio
-    // audioRef.current.play();
+
     // console.log(audioRef.current); // we get the song's mp3 link
   };
 
@@ -79,6 +78,7 @@ const Player = ({
     setSongInfo({ ...songInfo, currentTime: e.target.value });
     // console.log(e.target.value);
   };
+
   // create function to skip the song back and forward:
   const skipTrackHandler = (direction) => {
     // check if the currentSong's id matches the song's id of the state. If it matches, give me the index of that.
@@ -92,16 +92,19 @@ const Player = ({
       // console.log(`songs length ${songs.length}`);
     }
     // check if we skip backward:
-    if (direction === "skip-backward") {
+    if (direction === "skip-back") {
       // check if the currentIndex -1 and then song.length === -1
       if ((currentIndex - 1) % songs.length === -1) {
         // setCurrentSong to the last song
         setCurrentSong(songs[songs.length - 1]);
         // add return so when the above code runs, the below code doesnt run.
+        playAudio(isPlaying, audioRef);
         return;
       }
       setCurrentSong(songs[(currentIndex - 1) % songs.length]);
     }
+    // check if the song is playing:
+    playAudio(isPlaying, audioRef);
   };
   return (
     <div className="player-container">
