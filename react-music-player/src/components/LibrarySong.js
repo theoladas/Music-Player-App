@@ -32,6 +32,7 @@ const LibrarySong = ({
     });
     // update the state:
     setSongs(newSongs);
+
     // check if the song is playing:
     if (isPlaying) {
       // create a play promise:
