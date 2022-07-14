@@ -124,7 +124,10 @@ const Player = ({
           onChange={dragHandler}
         />
         {/* update current's song end time (duration) */}
-        <p>{getTime(songInfo.duration)}</p>
+        {/* <p>{getTime(songInfo.duration)}</p> */}
+
+        {/* if song's duration exists, then get the time , else add 0:00*/}
+        <p>{songInfo.duration ? getTime(songInfo.duration) : "0:00"}</p>
       </div>
       <div className="play-control">
         <FontAwesomeIcon
