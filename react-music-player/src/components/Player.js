@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -8,6 +9,7 @@ import {
   faItalic,
   faSignsPost,
 } from "@fortawesome/free-solid-svg-icons";
+
 const Player = ({
   currentSong,
   isPlaying,
@@ -17,7 +19,32 @@ const Player = ({
   setSongInfo,
   songs,
   setCurrentSong,
+  setSongs,
 }) => {
+  // Use Effect
+  useEffect(
+    () => {
+      // Add active state:
+      const newSongs = songs.map((song) => {
+        if (song.id === currentSong.id) {
+          return {
+            // if it match, return the whole song and set active to true
+            ...song,
+            active: true,
+          };
+        } else {
+          return {
+            ...song,
+            active: false,
+          };
+        }
+      });
+      // update the state:
+      setSongs(newSongs);
+    },
+    // run this function everytime our currentSong is updating:
+    [currentSong]
+  );
   // Event Handlers
   const playSongHandler = () => {
     // if the current song is playing
