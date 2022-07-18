@@ -125,7 +125,7 @@ const Player = ({
           {/* add functionality to move on time's song */}
           <input
             type="range"
-            // we always start form 0
+            // we always start from 0
             min={0}
             // the song total time duration will be max or 0
             max={songInfo.duration || 0}
