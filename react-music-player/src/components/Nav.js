@@ -4,7 +4,7 @@ import { faMusic } from "@fortawesome/free-solid-svg-icons";
 const Nav = ({ libraryStatus, setLibraryStatus }) => {
   return (
     <nav>
-      <h1>Chill VIbes</h1>
+      <h1>Chill Vibes</h1>
       {/* set th elibraryStatus to the opposite of what is right now.*/}
       <button onClick={() => setLibraryStatus(!libraryStatus)}>
         Library
