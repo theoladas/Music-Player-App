@@ -24,3 +24,11 @@ h4 {
   font-weight: 400;
   color: rgb(100, 100, 100);
 }
+
+.App {
+  transition: all 0.5s ease;
+}
+// Create a library-active class
+.library-active {
+  margin-left: 30%;
+}

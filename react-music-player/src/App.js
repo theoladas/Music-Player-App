@@ -63,7 +63,8 @@ function App() {
     }
   };
   return (
-    <div className="App">
+    // if the libraryStatus is open then add the css class else add nothing
+    <div className={`App ${libraryStatus ? "library-active" : ""}`}>
       <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       {/* pass the currentSong to the Song component */}
       <Song currentSong={currentSong} />
