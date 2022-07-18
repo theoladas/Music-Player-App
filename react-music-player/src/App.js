@@ -50,6 +50,18 @@ function App() {
       animationPercentage: animation,
     });
   };
+  // Create songEnded handler function:
+  const songEndHandler = async () => {
+    // when the song ends skips forward:
+    let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+    await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+
+    if (isPlaying) {
+      setTimeout(() => {
+        audioRef.current.play();
+      }, 100);
+    }
+  };
   return (
     <div className="App">
       <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
@@ -82,6 +94,8 @@ function App() {
         // when the file audio loads up, we got the time on the screen
         onLoadedMetadata={timeUpdateHandler}
         src={currentSong.audio}
+        // when the song ends run this:
+        onEnded={songEndHandler}
       ></audio>
     </div>
   );
