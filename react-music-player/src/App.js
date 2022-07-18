@@ -24,6 +24,7 @@ function App() {
   const [songInfo, setSongInfo] = useState({
     currentTime: 0,
     duration: 0,
+    animationPercentage: 0,
   });
   // create state for library (when it's open or not)(we dont want it open we set it to false by default)
   const [libraryStatus, setLibraryStatus] = useState(false);
@@ -36,8 +37,18 @@ function App() {
     // get the duration of the song
     const duration = e.target.duration;
     // console.log(duration)
+    // calculate percentage:
+    const roundedCurrent = Math.round(current);
+    const roundedDuration = Math.round(duration);
+    // get the percentage
+    const animation = Math.round((roundedCurrent / roundedDuration) * 100);
     // update state setSongInfo with the time
-    setSongInfo({ ...songInfo, currentTime: current, duration: duration });
+    setSongInfo({
+      ...songInfo,
+      currentTime: current,
+      duration: duration,
+      animationPercentage: animation,
+    });
   };
   return (
     <div className="App">
