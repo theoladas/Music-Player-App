@@ -15,6 +15,10 @@
   input {
     width: 100%;
     padding: 1rem 0rem;
+    // remove all styles from the input range
+    -webkit-appearance: none;
+    background-color: transparent;
+    cursor: pointer;
   }
   //   Add styles to the paragraph
   p {
@@ -31,4 +35,11 @@
   svg {
     cursor: pointer;
   }
+}
+// customize the slide
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  background: black;
 }

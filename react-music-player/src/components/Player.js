@@ -111,21 +111,23 @@ const Player = ({
       <div className="time-control">
         {/* update current song's time */}
         <p>{getTime(songInfo.currentTime)}</p>
-        {/* add functionality to move on time's song */}
-        <input
-          type="range"
-          // we always start form 0
-          min={0}
-          // the song total time duration will be max or 0
-          max={songInfo.duration || 0}
-          // the position of the slide will be the currentTime
-          value={songInfo.currentTime}
-          // to be able to position song's time
-          onChange={dragHandler}
-        />
+        <div className="track">
+          {/* add functionality to move on time's song */}
+          <input
+            type="range"
+            // we always start form 0
+            min={0}
+            // the song total time duration will be max or 0
+            max={songInfo.duration || 0}
+            // the position of the slide will be the currentTime
+            value={songInfo.currentTime}
+            // to be able to position song's time
+            onChange={dragHandler}
+          />
+          <div className="animate-track"></div>
+        </div>
         {/* update current's song end time (duration) */}
         {/* <p>{getTime(songInfo.duration)}</p> */}
-
         {/* if song's duration exists, then get the time , else add 0:00*/}
         <p>{songInfo.duration ? getTime(songInfo.duration) : "0:00"}</p>
       </div>
