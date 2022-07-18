@@ -1,5 +1,4 @@
 import React from "react";
-import { playAudio } from "../Util";
 
 const LibrarySong = ({
   song,
@@ -11,11 +10,11 @@ const LibrarySong = ({
   setSongs,
 }) => {
   // create select song handler function
-  const songSelectHandler = () => {
+  const songSelectHandler = async () => {
     // I want to grab all the Library songs from the state and filter them out.
     const selectedSong = songs.filter((state) => state.id === id);
     // we set the setCurrentSong to the song we clicked:
-    setCurrentSong(selectedSong[0]);
+    await setCurrentSong(selectedSong[0]);
     // Add active state:
     const newSongs = songs.map((song) => {
       if (song.id === id) {
@@ -34,7 +33,7 @@ const LibrarySong = ({
     // update the state:
     setSongs(newSongs);
     // // check if the song is playing:
-    playAudio(isPlaying, audioRef);
+    if (isPlaying) audioRef.current.play();
   };
 
   return (

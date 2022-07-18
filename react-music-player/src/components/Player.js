@@ -8,7 +8,6 @@ import {
   faItalic,
   faSignsPost,
 } from "@fortawesome/free-solid-svg-icons";
-import { playAudio } from "../Util";
 
 const Player = ({
   currentSong,
@@ -80,13 +79,13 @@ const Player = ({
   };
 
   // create function to skip the song back and forward:
-  const skipTrackHandler = (direction) => {
+  const skipTrackHandler = async (direction) => {
     // check if the currentSong's id matches the song's id of the state. If it matches, give me the index of that.
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
     // check the direction, if we skip forward :
     if (direction === "skip-forward") {
       // index by +1 to move to the next song. the modulus allows to check if we get to the same number as the songs.length, then to go back to 0.
-      setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+      await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
       // console.log(`next index ${currentIndex + 1}`);
       // console.log(`songs length ${songs.length}`);
       // console.log(`songs length ${songs.length}`);
@@ -96,15 +95,18 @@ const Player = ({
       // check if the currentIndex -1 and then song.length === -1
       if ((currentIndex - 1) % songs.length === -1) {
         // setCurrentSong to the last song
-        setCurrentSong(songs[songs.length - 1]);
+        await setCurrentSong(songs[songs.length - 1]);
         // add return so when the above code runs, the below code doesnt run.
-        playAudio(isPlaying, audioRef);
+        if (isPlaying) audioRef.current.play();
+        // playAudio(isPlaying, audioRef);
         return;
       }
-      setCurrentSong(songs[(currentIndex - 1) % songs.length]);
+      await setCurrentSong(songs[(currentIndex - 1) % songs.length]);
     }
+
     // check if the song is playing:
-    playAudio(isPlaying, audioRef);
+    if (isPlaying) audioRef.current.play();
+    // playAudio(isPlaying, audioRef);
   };
   // Add the styles
   const trackAnim = {
