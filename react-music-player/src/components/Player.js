@@ -115,7 +115,13 @@ const Player = ({
       <div className="time-control">
         {/* update current song's time */}
         <p>{getTime(songInfo.currentTime)}</p>
-        <div className="track">
+        <div
+          // add the linear gradient of the color's song to the input range
+          style={{
+            background: `linear-gradient(to right, ${currentSong.color[0]}, ${currentSong.color[1]})`,
+          }}
+          className="track"
+        >
           {/* add functionality to move on time's song */}
           <input
             type="range"
