@@ -11,13 +11,15 @@
 .time-control {
   width: 50%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   //   Add styles to the input
   input {
     width: 100%;
     padding: 1rem 0rem;
     // remove all styles from the input range
     -webkit-appearance: none;
-    background-color: transparent;
+    background: transparent;
     cursor: pointer;
   }
   //   Add styles to the paragraph
@@ -37,9 +39,35 @@
   }
 }
 // customize the slide
+input[type="range"]:focus {
+  outline: none;
+}
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 16px;
   width: 16px;
   background: black;
+}
+
+// add styles for track (holds the input and the animate-track div)
+.track {
+  // display: flex;
+  // align-items: center;
+  background: salmon;
+  width: 100%;
+  height: 1rem;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  .animate-track {
+    background: rgb(204, 204, 204);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(0%);
+    // to be able to click
+    pointer-events: none;
+  }
 }
