@@ -47,6 +47,12 @@ input[type="range"]::-webkit-slider-thumb {
   height: 16px;
   width: 16px;
 }
+// For Firefox
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+}
 
 // add styles for track (holds the input and the animate-track div)
 .track {
