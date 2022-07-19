@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -20,30 +20,25 @@ const Player = ({
   setCurrentSong,
   setSongs,
 }) => {
-  // Use Effect
-  useEffect(
-    () => {
-      // Add active state:
-      const newSongs = songs.map((song) => {
-        if (song.id === currentSong.id) {
-          return {
-            // if it match, return the whole song and set active to true
-            ...song,
-            active: true,
-          };
-        } else {
-          return {
-            ...song,
-            active: false,
-          };
-        }
-      });
-      // update the state:
-      setSongs(newSongs);
-    },
-    // run this function everytime our currentSong is updating:
-    [currentSong]
-  );
+  const activeLibraryHandler = (nextPrev) => {
+    // Add active state:
+    const newSongs = songs.map((song) => {
+      if (song.id === nextPrev.id) {
+        return {
+          // if it match, return the whole song and set active to true
+          ...song,
+          active: true,
+        };
+      } else {
+        return {
+          ...song,
+          active: false,
+        };
+      }
+    });
+    // update the state:
+    setSongs(newSongs);
+  };
   // Event Handlers
   const playSongHandler = () => {
     // if the current song is playing
@@ -89,6 +84,7 @@ const Player = ({
       // console.log(`next index ${currentIndex + 1}`);
       // console.log(`songs length ${songs.length}`);
       // console.log(`songs length ${songs.length}`);
+      activeLibraryHandler(songs[(currentIndex + 1) % songs.length]);
     }
     // check if we skip backward:
     if (direction === "skip-back") {
@@ -96,12 +92,15 @@ const Player = ({
       if ((currentIndex - 1) % songs.length === -1) {
         // setCurrentSong to the last song
         await setCurrentSong(songs[songs.length - 1]);
+        activeLibraryHandler(songs[songs.length - 1]);
+
         // add return so when the above code runs, the below code doesnt run.
         if (isPlaying) audioRef.current.play();
         // playAudio(isPlaying, audioRef);
         return;
       }
       await setCurrentSong(songs[(currentIndex - 1) % songs.length]);
+      activeLibraryHandler(songs[(currentIndex - 1) % songs.length]);
     }
 
     // check if the song is playing:
