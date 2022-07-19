@@ -19,7 +19,7 @@ const LibrarySong = ({
     const newSongs = songs.map((song) => {
       if (song.id === id) {
         return {
-          // if it match, return the whole song and set active to true
+          // if it matches, return the whole song and set active to true
           ...song,
           active: true,
         };

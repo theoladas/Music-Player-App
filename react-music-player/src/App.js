@@ -8,7 +8,6 @@ import Library from "./components/Library";
 import Nav from "./components/Nav";
 // import data songs
 import data from "./data";
-import { faCartFlatbedSuitcase } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   // Ref
@@ -36,7 +35,6 @@ function App() {
     const current = e.target.currentTime;
     // get the duration of the song
     const duration = e.target.duration;
-    // console.log(duration)
     // calculate percentage:
     const roundedCurrent = Math.round(current);
     const roundedDuration = Math.round(duration);

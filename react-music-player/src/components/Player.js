@@ -5,8 +5,6 @@ import {
   faAngleLeft,
   faAngleRight,
   faPause,
-  faItalic,
-  faSignsPost,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Player = ({
@@ -25,7 +23,7 @@ const Player = ({
     const newSongs = songs.map((song) => {
       if (song.id === nextPrev.id) {
         return {
-          // if it match, return the whole song and set active to true
+          // if it matches, return the whole song and set active to true
           ...song,
           active: true,
         };
@@ -52,8 +50,6 @@ const Player = ({
       // switch the state to the opposite of what it was
       setIsPlaying(!isPlaying);
     }
-
-    // console.log(audioRef.current); // we get the song's mp3 link
   };
 
   //create function to format the time's song to minutes and seconds eg: 00:00
@@ -81,9 +77,6 @@ const Player = ({
     if (direction === "skip-forward") {
       // index by +1 to move to the next song. the modulus allows to check if we get to the same number as the songs.length, then to go back to 0.
       await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
-      // console.log(`next index ${currentIndex + 1}`);
-      // console.log(`songs length ${songs.length}`);
-      // console.log(`songs length ${songs.length}`);
       activeLibraryHandler(songs[(currentIndex + 1) % songs.length]);
     }
     // check if we skip backward:
@@ -105,7 +98,6 @@ const Player = ({
 
     // check if the song is playing:
     if (isPlaying) audioRef.current.play();
-    // playAudio(isPlaying, audioRef);
   };
   // Add the styles
   const trackAnim = {
@@ -137,14 +129,11 @@ const Player = ({
           />
           <div style={trackAnim} className="animate-track"></div>
         </div>
-        {/* update current's song end time (duration) */}
-        {/* <p>{getTime(songInfo.duration)}</p> */}
         {/* if song's duration exists, then get the time , else add 0:00*/}
         <p>{songInfo.duration ? getTime(songInfo.duration) : "0:00"}</p>
       </div>
       <div className="play-control">
         <FontAwesomeIcon
-          // Add event with the skipTrackHandler , parameter (skip-back)
           onClick={() => skipTrackHandler("skip-back")}
           icon={faAngleLeft}
           size="2x"
