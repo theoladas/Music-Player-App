@@ -1,7 +1,7 @@
 <h1 align="center">React Music Player App</h1>
 
 <h3 align="center">Based of Dev Ed's: 'The Creative React and Redux Course'</h3>
-<p align="center">https://developedbyed.com/p/the-creative-react-and-redux-course>/p>
+<p align="center">https://developedbyed.com/p/the-creative-react-and-redux-course>
 
 
 
