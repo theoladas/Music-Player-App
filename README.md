@@ -1,8 +1,14 @@
 <h1 align="center">React Music Player App</h1>
 
-<h3 align="center">Based of Dev Ed's: 'The Creative React and Redux Course'</h3>
-<p align="center">https://developedbyed.com/p/the-creative-react-and-redux-course</p>
+<h3 align="center"><i>Based of Dev Ed's: 'The Creative React and Redux Course'</i></h3>
 
+<div align="center">
+  <h3>
+    <a href="https://theoladas.github.io/Music-Player-App/">
+      Live
+    </a>
+  </h3>
+</div>
 
 
 ## Table of Contents
@@ -16,8 +22,6 @@
 
 ## Overview
 ![screencapture-localhost-3000-2022-07-19-15_16_47](https://user-images.githubusercontent.com/67963370/179773350-f3874bc5-4617-44f2-afcd-94cf61d6b94c.png)
-![screencapture-localhost-3000-2022-07-19-15_17_04](https://user-images.githubusercontent.com/67963370/179773375-6c5153b6-baa8-4ef5-bf3e-97abc5ee7ab8.png)
-
 
 ### Built With
 
@@ -44,10 +48,3 @@ Open http://localhost:3000 to view it in the browser.
 ## Contact
 
 - GitHub [@theoladas](https://github.com/theoladas)
-
-
-
-
-
-
-
