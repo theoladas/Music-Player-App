@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Music-Player-App/static/css/main.7de11317.css",
+    "main.js": "/Music-Player-App/static/js/main.d8b7f281.js",
+    "static/js/787.c2652ce4.chunk.js": "/Music-Player-App/static/js/787.c2652ce4.chunk.js",
+    "index.html": "/Music-Player-App/index.html",
+    "main.7de11317.css.map": "/Music-Player-App/static/css/main.7de11317.css.map",
+    "main.d8b7f281.js.map": "/Music-Player-App/static/js/main.d8b7f281.js.map",
+    "787.c2652ce4.chunk.js.map": "/Music-Player-App/static/js/787.c2652ce4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7de11317.css",
+    "static/js/main.d8b7f281.js"
+  ]
+}
