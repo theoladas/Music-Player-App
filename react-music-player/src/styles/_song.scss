@@ -5,13 +5,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // add styles for song cover
+  // Add styles for song cover
   img {
     width: 30%;
     border-radius: 50%;
     animation: spinCover 7s infinite linear;
   }
-  // add styles for title and artist
+  // Add styles for title and artist
   h2 {
     padding: 3rem 1rem 1rem 1rem;
   }
@@ -29,7 +29,6 @@
   }
 }
 
-// Add mobile styles
 @media screen and (max-width: 768px) {
   .song-container {
     img {

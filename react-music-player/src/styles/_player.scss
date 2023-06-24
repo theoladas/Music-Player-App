@@ -19,6 +19,7 @@
     padding: 1rem 0rem;
     // remove all styles from the input range
     -webkit-appearance: none;
+    appearance: none;
     background: transparent;
     cursor: pointer;
   }
@@ -38,7 +39,7 @@
     cursor: pointer;
   }
 }
-// customize the slide
+// Customize the slide
 input[type="range"]:focus {
   outline: none;
 }
@@ -50,14 +51,13 @@ input[type="range"]::-webkit-slider-thumb {
 // For Firefox
 input[type="range"]::-moz-range-thumb {
   -webkit-appearance: none;
+  appearance: none;
   background: transparent;
   border: none;
 }
 
-// add styles for track (holds the input and the animate-track div)
+// Add styles for track (holds the input and the animate-track div)
 .track {
-  // display: flex;
-  // align-items: center;
   background: salmon;
   width: 100%;
   height: 1rem;
@@ -72,12 +72,10 @@ input[type="range"]::-moz-range-thumb {
     top: 0;
     left: 0;
     transform: translateX(0%);
-    // to be able to click
     pointer-events: none;
   }
 }
 
-// Add mobile styles
 @media screen and (max-width: 768px) {
   .time-control {
     width: 90%;

@@ -1,9 +1,9 @@
-// style the scroll bar for Firefox
+// Style the scroll bar for Firefox
 * {
   scrollbar-width: thin;
   scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
 }
-// style the scroll bar for other browsers
+// Style the scroll bar for other browsers
 *::-webkit-scrollbar {
   width: 5px;
   color: rgba(155, 155, 155, 0.5) transparent;
@@ -26,7 +26,7 @@
   background-color: white;
   box-shadow: 2px 2px 50px rgb(204, 204, 204);
   overflow: scroll;
-  // move the Nav off the screen
+  // Move the Nav off the screen
   transform: translateX(-100%);
   opacity: 0;
   transition: all 0.5s ease;
@@ -58,17 +58,16 @@
   }
 }
 
-// create active class
+// Create active class
 .selected {
   background: rgb(145, 165, 218);
 }
-// show library
+
 .active-library {
   transform: translateX(0%);
   opacity: 1;
 }
 
-// Add mobile styles
 @media screen and (max-width: 768px) {
   .library {
     width: 100%;
