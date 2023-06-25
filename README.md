@@ -1,6 +1,6 @@
-<h1 align="center">React Music Player App</h1>
+<h1 align="center">Music Player App</h1>
 
-<h3 align="center"><i>Based of Dev Ed's: 'The Creative React and Redux Course'</i></h3>
+<h3 align="center"><i>Based of Dev Ed's (paid) course: 'The Creative React and Redux Course'</i></h3>
 
 <div align="center">
   <h3>
